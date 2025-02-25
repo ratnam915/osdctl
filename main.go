@@ -5,6 +5,7 @@ import (
 	"os"
 
 	"github.com/openshift/osdctl/cmd"
+	docgen "github.com/openshift/osdctl/hack"
 	"github.com/openshift/osdctl/pkg/osdctlConfig"
 
 	"k8s.io/cli-runtime/pkg/genericclioptions"
@@ -15,6 +16,11 @@ func main() {
 	err := osdctlConfig.EnsureConfigFile()
 	if err != nil {
 		fmt.Println(err)
+		return
+	}
+
+	if len(os.Args) > 1 && os.Args[1] == "docgen" {
+		docgen.Main()
 		return
 	}
 
