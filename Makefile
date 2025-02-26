@@ -33,14 +33,10 @@ SINGLE_TARGET ?= false
 
 #Adding a Makefile target for README document update
 
-.PHONY: generate-docs verify-docs
+.PHONY: generate-docs 
 
 generate-docs:
 	go run main.go docgen --cmd-path=./cmd --docs-dir=./docs --readme=README.md --output=README.md 
-
-
-verify-docs:
-	go run main.go docgen --verify-only
 
 # Need to use --snapshot here because the goReleaser
 # requires more git info that is provided in Prow's clone.
@@ -50,6 +46,9 @@ build:
 	goreleaser build --clean --snapshot --single-target=${SINGLE_TARGET}
 
 release:
+
+	$(MAKE) generate-docs
+	git diff --exit-code -- README.md || (echo "README.md is out of date, please run 'make generate-docs'" && exit 1)
 	goreleaser release --clean
 
 install:
