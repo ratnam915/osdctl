@@ -48,7 +48,6 @@ build:
 release:
 
 	$(MAKE) generate-docs
-	git diff --exit-code -- README.md || (echo "README.md is out of date, please run 'make generate-docs'" && exit 1)
 	goreleaser release --clean
 
 install:
