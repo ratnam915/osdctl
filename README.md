@@ -617,3 +617,187 @@ Note : Here node-id refers to the node that has the unhealthy etcd member. This 
 ```
 osdctl swarm secondary
 ```
+
+## Command Reference
+
+This section provides a comprehensive list of all available osdctl commands, organized by category.
+
+### Clusterdeployment Commands
+
+* `listresources` - List all resources on a hive cluster related to a given cluster
+
+### Break-Glass Commands
+
+* `cleanup` - Drop emergency access to a cluster
+
+### Aao Commands
+
+* `pool` - Get the status of the AWS Account Operator AccountPool
+
+### Cost Commands
+
+* `reconcile` - Checks if there's a cost category for every OU. If an OU is missing a cost category, creates the cost category
+
+### Network Commands
+
+* `verify-egress` - Verify an AWS OSD/ROSA cluster can reach all required external URLs necessary for full support.
+* `packet-capture` - Start packet capture
+
+### General Commands
+
+* `cluster` - Provides information for a specified cluster
+* `hive` - hive related utilities
+* `upgrade` - Upgrade osdctl
+* `setup` - Setup the configuration
+* `version` - Display the version
+* `org` - Provides information for a specified organization
+* `osdctl` - OSD CLI
+* `swarm` - Provides a set of commands for swarming activity
+* `dynatrace` - Dynatrace related utilities
+* `hcp` - 
+* `alert` - List alerts
+* `promote` - Utilities to promote services/operators
+* `aao` - AWS Account Operator Debugging Utilities
+* `env` - Create an environment to interact with a cluster
+* `iampermissions` - STS/WIF utilities
+* `jumphost` - 
+* `network` - network related utilities
+* `jira` - Provides a set of commands for interacting with Jira
+* `cloudtrail` - AWS CloudTrail related utilities
+* `servicelog` - OCM/Hive Service log
+* `cost` - Cost Management related utilities
+* `mc` - 
+
+### Jumphost Commands
+
+* `create` - Create a jumphost for emergency SSH access to a cluster's VMs
+* `delete` - Delete a jumphost created by `osdctl jumphost create`
+
+### Dynatrace Commands
+
+* `gather-logs` - Gather all Pod logs and Application event from HCP
+* `url` - Get the Dyntrace Tenant URL for a given MC or HCP cluster
+* `logs` - Fetch logs from Dynatrace
+
+### Silence Commands
+
+* `expire` - Expire Silence for alert
+* `add` - Add new silence for alert
+
+### Hcp Commands
+
+* `must-gather` - Create a must-gather for HCP cluster
+
+### Resize Commands
+
+* `control-plane` - Resize an OSD/ROSA cluster's control plane nodes
+* `infra` - Resize an OSD/ROSA cluster's infra nodes
+
+### Servicelog Commands
+
+* `post` - Post a service log to a cluster or list of clusters
+* `list` - Get service logs for a given cluster identifier.
+
+### Ssh Commands
+
+* `key` - Retrieve a cluster's SSH key from Hive
+
+### Org Commands
+
+* `describe` - describe organization
+* `context` - fetches information about the given organization
+* `clusters` - get all active organization clusters
+* `get` - get organization by users
+* `customers` - get paying/non-paying organizations
+* `current` - gets current organization
+* `users` - get organization users
+* `labels` - get organization labels
+* `aws-accounts` - get organization AWS Accounts
+
+### Account Commands
+
+* `reset` - Reset AWS Account CR
+* `servicequotas` - Interact with AWS service-quotas
+* `mgmt` - AWS Account Management
+* `verify-secrets` - Verify AWS Account CR IAM User credentials
+* `clean-velero-snapshots` - Cleans up S3 buckets whose name start with managed-velero
+* `generate-secret` - Generates IAM credentials secret
+* `cli` - Generate temporary AWS CLI credentials on demand
+* `set` - Set AWS Account CR status
+* `rotate-secret` - Rotate IAM credentials secret
+* `console` - Generate an AWS console URL on the fly
+
+### Promote Commands
+
+* `saas` - Utilities to promote SaaS services/operators
+* `package` - Utilities to promote package-operator services
+
+### Hive Commands
+
+* `clustersync-failures` - List clustersync failures
+* `clusterdeployment` - cluster deployment related utilities
+
+### Support Commands
+
+* `status` - Shows the support status of a specified cluster
+
+### Iampermissions Commands
+
+* `diff` - Diff iam permissions for cluster operators between two versions
+* `save` - Save iam permissions for use in mcc
+
+### Alert Commands
+
+* `silence` - add, expire and list silence associated with alerts
+
+### List Commands
+
+* `account-claim` - List AWS Account Claim CR
+* `account` - List AWS Account CR
+
+### Cluster Commands
+
+* `check-banned-user` - Checks if the cluster owner is a banned user.
+* `hypershift-info` - Pull information about AWS objects from the cluster, the management cluster and the privatelink cluster
+* `cpd` - Runs diagnostic for a Cluster Provisioning Delay (CPD)
+* `logging-check` - Shows the logging support status of a specified cluster
+* `resize` - resize control-plane/infra nodes
+* `from-infra-id` - Get cluster ID and external ID from a given infrastructure ID commonly used by Splunk
+* `transfer-owner` - Transfer cluster ownership to a new user (to be done by Region Lead)
+* `support` - Cluster Support
+* `owner` - List the clusters owned by the user (can be specified to any user, not only yourself)
+* `etcd-health-check` - Checks the etcd components and member health
+* `orgId` - Get the OCM org ID for a given cluster
+* `validate-pull-secret` - Checks if the pull secret email matches the owner email
+* `resync` - Force a resync of a cluster from Hive
+* `ssh` - utilities for accessing cluster via ssh
+* `health` - Describes health of cluster nodes and provides other cluster vitals.
+* `etcd-member-replace` - Replaces an unhealthy etcd node
+* `sre-operators` - SRE operator related utilities
+* `detach-stuck-volume` - Detach openshift-monitoring namespace's volume from a cluster forcefully
+* `break-glass` - Emergency access to a cluster
+
+### Swarm Commands
+
+* `secondary` - List unassigned JIRA issues based on criteria
+
+### Mgmt Commands
+
+* `assign` - Assign account to user
+* `unassign` - Unassign account to user
+* `iam` - Creates an IAM user in a given AWS account and prints out the credentials
+
+### Get Commands
+
+* `secrets` - Get AWS Account CR related secrets
+* `legal-entity` - Get AWS Account Legal Entity
+* `aws-account` - Get AWS Account ID
+
+### Cloudtrail Commands
+
+* `write-events` - Prints cloudtrail write events to console with optional filtering
+* `permission-denied-events` - Prints cloudtrail permission-denied events to console.
+
+### Jira Commands
+
+* `quick-task` - creates a new ticket with the given name

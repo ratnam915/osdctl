@@ -31,6 +31,13 @@ ci-build: download-goreleaser build
 
 SINGLE_TARGET ?= false
 
+#Adding a Makefile target for README document update
+
+.PHONY: generate-docs 
+
+generate-docs:
+	go run main.go docgen --cmd-path=./cmd --docs-dir=./docs --readme=README.md --output=README.md 
+
 # Need to use --snapshot here because the goReleaser
 # requires more git info that is provided in Prow's clone.
 # Snapshot allows the build without validation of the
@@ -39,6 +46,8 @@ build:
 	goreleaser build --clean --snapshot --single-target=${SINGLE_TARGET}
 
 release:
+
+	$(MAKE) generate-docs
 	goreleaser release --clean
 
 install:
