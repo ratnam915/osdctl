@@ -71,7 +71,8 @@ ensure-mockgen:
 	GOBIN=${BASE_DIR}/bin/ go install go.uber.org/mock/mockgen@v0.5.0
 
 test:
-	go test ${BUILDFLAGS} ./... -covermode=atomic -coverpkg=./...
+	go test ${BUILDFLAGS} ./... -covermode=atomic -coverpkg=./... -coverprofile=coverage.out
+
 
 lint:
 	golangci-lint run
